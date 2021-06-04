@@ -1,9 +1,37 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Roboto&display=swap');
+
+.card {
+  max-height: 15em;
+  max-width: 50em;
+  padding: 5px;
+  margin: 10px;
+  background-color: #7a8691;
+  display:flex;
+  flex-direction: row;
+  align-content: baseline;
 }
 
-#greeting-container {
-  margin-top: 20px;
+.about-me-picture {
+  max-width: 25%;
+  max-height: 25%;
+  object-fit: contain;
+  padding: 5px;
+  order: -1;
+  border: 1em aliceblue ;
+  border-radius: 1em;
 }
+
+.content-text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: aliceblue;
+}
+
+.title-text{
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5em;
+  color: aliceblue;
+}
+
+
