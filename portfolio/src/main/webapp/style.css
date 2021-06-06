@@ -1,78 +1,123 @@
-/*fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Roboto&display=swap');
 
-main{
-  color:black;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  padding-top: 80px;
+/*variables*/
+
+:root {
+    --main-bg-color: #131313;
+    --header-bg-color: #101D42;
+    --card-bg-color: #393e46;
+    --shadow-color: #25282e;
+    --accent-color: #6564DB;
+    --font-color: #eeeeee;
 }
+
+main {
+    color: var(--main-bg-color);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding-top: 10vh;
+}
+
 
 /* navbar */
-header{
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  margin-bottom: 80px;
-  display: flex;
+
+header {
+    background-color: var(--header-bg-color);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-bottom: 10px;
+    display: flex;
 }
 
-header *{
-  display: inline;
-  font-family: 'Abel', sans-serif;
+header * {
+    display: inline;
+    font-family: 'Abel', sans-serif;
 }
-header nav li ul{
-  margin: 80em;
+
+#name {
+    color: var(--font-color);
+    display: block;
+    text-decoration: none;
+}
+
+#name:hover {
+    color: green;
+}
+
+header nav {
+    align-items: flex-end;
+}
+
+header nav li {
+    color: var(--font-color);
+    text-decoration: none;
+    margin-right: 4rem;
+    font-size: 3rem;
+}
+
+header nav li a:hover {
+    color: var(--accent-color);
 }
 
 header h1 {
-  margin-left: 40px;
+    margin-left: 40px;
 }
 
-.navbar-element{
-  font-family: 'Abel', sans-serif;
-  font-size: 1.2em
+.navbar-element {
+    font-family: 'Abel', sans-serif;
+    font-size: 2em;
 }
+
 
 /* BODY */
+
+body {
+    background-color: var(--main-bg-color);
+}
+
 .card {
-  max-height: 15em;
-  max-width: 50%;
-  width: auto;
-  margin: 10px;
-  padding: 5px;
-  background-color: #7a8691;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: flex-start;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 black;
+    max-height: 15em;
+    max-width: 50%;
+    width: auto;
+    margin: 5%;
+    padding: 5px;
+    background-color: var(--card-bg-color);
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 whitesmoke;
 }
 
-.card-picture {
-  object-fit: contain;
-  height: 200px;
-  padding: 5px;
-  border: 1px black;
-  border-radius: 12px;
+main .card img {
+    object-fit: contain;
+    height: 200px;
+    padding: 0 5%;
+    border-radius: 12px;
 }
 
-.card-text{
-  font-family: 'Roboto', sans-serif;
-  color: aliceblue;
-  font-size: 1.2em;
-  padding: 5px;
-  word-wrap: break-word;
+main .card p {
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-color);
+    font-size: 1.2em;
+    padding: 5px;
+    word-wrap: break-word;
 }
 
-.card-header{
-  font-family: 'Abel', sans-serif;
-  font-size: 1.5em;
-  color: aliceblue;
-}
 
 /* FOOTER */
 
+
+/*other classes*/
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
