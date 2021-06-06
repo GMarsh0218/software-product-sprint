@@ -23,7 +23,6 @@ function onLoad() {
 function timeSince(date) {
   // difference of time between initial date and now in seconds, divide by 1000 because js uses ms for time.
   let timeElapsed = Math.floor((new Date() - date) / 1000);
-
   const unitsInSecs = {
     'year': 31536000,
     'month': 2419200,
@@ -31,31 +30,22 @@ function timeSince(date) {
     'day': 86400,
     'hour': 3600,
     'minute': 60,
-    'second': 1
+    'second': 1,
   };
 
-  let returnString = '';
-  for (const [key, val] of Object.entries(unitsInSecs)) {
-    if(Math.floor(timeElapsed / val) >= 1){
-      returnString = `\`172850 % ${val} = ${Math.floor(172850 / val)} ${key}`
-      break;
-  }
-
-    if(!returnString.startsWith('1 ')){
-      returnString += 's'
+  for (const key in unitsInSecs) {
+    if (timeElapsed % unitsInSecs[key] !== timeElapsed) {
+      return `${Math.floor(timeElapsed / unitsInSecs[key])} ${key}${Math.floor(timeElapsed / unitsInSecs[key]) === 1 ? '' : 's'}`
     }
-
-    return returnString;
+  }
 }
 
-
-}
 
 function getLastSong(){
   const url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
-  fetchAsync(url, (jsonData) => {
+  fetchAsync(url).then(data => {
 
-    const trackData = jsonData.recenttracks.track[0];
+    const trackData = data.recenttracks.track[0];
     const artistName = trackData.artist["#text"];
     const songName = trackData.name;
     const albumName = trackData.album["#text"];
@@ -63,11 +53,11 @@ function getLastSong(){
     let listeningInfo;
 
     if(trackData["@attr"] && trackData["@attr"].nowplaying === "true"){
-      listeningInfo = "I am currently listening to " + songName + " by " + artistName + "." ;
+      listeningInfo = `I am currently listening to ${songName} by ${artistName}.` ;
     }
     else{
       let timeSinceSongPlayed = timeSince(trackData.date["uts"]);
-      listeningInfo = "I was listening to " + songName + " by " + artistName +",  "+ timeSinceSongPlayed + " ago.";
+      listeningInfo = `I was listening to ${songName} by ${artistName},  ${timeSinceSongPlayed} ago.`;
     }
     // set listening info
     document.getElementById("song-info").innerText = listeningInfo;
@@ -76,12 +66,10 @@ function getLastSong(){
     document.getElementById("album-art").alt = albumName;
   });
 
-
-  //fetchAsync() taken from https://stackoverflow.com/a/38297729
-  async function fetchAsync (url, callback) {
+  //fetchAsync() based on https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808
+  async function fetchAsync (url) {
     let response = await fetch(url);
-    let data = await response.json();
-    callback(data);
+    return await response.json();
   }
 
 }
