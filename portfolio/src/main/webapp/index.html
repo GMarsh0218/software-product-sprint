@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
+<html onload="onLoad()" lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Garrett Marsh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+<header id="heading">
+  <h1><a href="/">Garrett Marsh</a></h1>
+  <nav>
+    <ul>
+      <li><a href="/">About</a></li>
+      <li><a href="https://github.com/Gmarsh0218">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/garrett-marsh-34b11719a/">Linkedin</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main-content" >
+  <div class="card">
+    <img alt="a photo of myself"
+         class="card-picture"
+         src="images/portrait.png">
+    <p class="card-text">I am a Computer Science Student looking for internships for the upcoming 2022 year. I have experience in Python, Java and C++. In addition, I have worked in a profession lab environment with the QCC Physics department.</p>
+  </div>
+  <div class="card" id="currently-playing">
+    <img id="album-art" class="card-picture" alt="" src="">
+    <p id="song-info">I am currently listening to DEFAULT_SONG by DEFAULT_ARTIST</p>
+  </div>
+</main>
+<footer></footer>
+</body>
 </html>
