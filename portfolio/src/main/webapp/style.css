@@ -29,11 +29,7 @@ header {
     right: 0;
     top: 0;
     margin-bottom: 10px;
-    display: flex;
-}
-
-header * {
-    display: inline;
+    display: block;
     font-family: 'Abel', sans-serif;
 }
 
@@ -47,19 +43,33 @@ header * {
     color: green;
 }
 
-header nav {
-    align-items: flex-end;
+nav {
+    align-items: end;
 }
 
-header nav li {
+header nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
     color: var(--font-color);
+    display: inline-block;
     text-decoration: none;
     margin-right: 4rem;
     font-size: 3rem;
 }
 
+header nav li a {
+    color: var(--font-color)
+}
+
 header nav li a:hover {
     color: var(--accent-color);
+}
+
+header nav li a:visited {
+    color: var(--font-color)
 }
 
 header h1 {
@@ -67,7 +77,6 @@ header h1 {
 }
 
 .navbar-element {
-    font-family: 'Abel', sans-serif;
     font-size: 2em;
 }
 
@@ -93,14 +102,14 @@ body {
     box-shadow: 0 0 10px 0 whitesmoke;
 }
 
-main .card img {
+.card img {
     object-fit: contain;
     height: 200px;
     padding: 0 5%;
     border-radius: 12px;
 }
 
-main .card p {
+.card p {
     font-family: 'Roboto', sans-serif;
     color: var(--font-color);
     font-size: 1.2em;
