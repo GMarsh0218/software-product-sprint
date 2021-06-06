@@ -43,16 +43,12 @@ header {
     color: green;
 }
 
-nav {
-    align-items: end;
-}
-
 header nav {
     display: flex;
     justify-content: space-around;
 }
 
-nav li {
+nav ul {
     color: var(--font-color);
     display: inline-block;
     text-decoration: none;
@@ -60,24 +56,20 @@ nav li {
     font-size: 3rem;
 }
 
-header nav li a {
+nav li a {
     color: var(--font-color)
 }
 
-header nav li a:hover {
+nav li a:hover {
     color: var(--accent-color);
 }
 
-header nav li a:visited {
+nav li a:visited {
     color: var(--font-color)
 }
 
 header h1 {
     margin-left: 40px;
-}
-
-.navbar-element {
-    font-size: 2em;
 }
 
 
@@ -119,6 +111,8 @@ body {
 
 
 /* FOOTER */
+
+footer {}
 
 
 /*other classes*/
