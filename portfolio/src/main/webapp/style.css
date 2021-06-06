@@ -1,37 +1,78 @@
 /*fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Roboto&display=swap');
 
+main{
+  color:black;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 80px;
+}
+
+/* navbar */
+header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-bottom: 80px;
+  display: flex;
+}
+
+header *{
+  display: inline;
+  font-family: 'Abel', sans-serif;
+}
+header nav li ul{
+  margin: 80em;
+}
+
+header h1 {
+  margin-left: 40px;
+}
+
+.navbar-element{
+  font-family: 'Abel', sans-serif;
+  font-size: 1.2em
+}
+
+/* BODY */
 .card {
   max-height: 15em;
-  max-width: 50em;
-  padding: 5px;
+  max-width: 50%;
+  width: auto;
   margin: 10px;
-  background-color: #7a8691;
-  display:flex;
-  flex-direction: row;
-  align-content: baseline;
-}
-
-.about-me-picture {
-  max-width: 25%;
-  max-height: 25%;
-  object-fit: contain;
   padding: 5px;
-  order: -1;
-  border: 1em aliceblue ;
-  border-radius: 1em;
+  background-color: #7a8691;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 black;
 }
 
-.content-text{
+.card-picture {
+  object-fit: contain;
+  height: 200px;
+  padding: 5px;
+  border: 1px black;
+  border-radius: 12px;
+}
+
+.card-text{
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2em;
   color: aliceblue;
+  font-size: 1.2em;
+  padding: 5px;
+  word-wrap: break-word;
 }
 
-.title-text{
+.card-header{
   font-family: 'Abel', sans-serif;
   font-size: 1.5em;
   color: aliceblue;
 }
 
+/* FOOTER */
 
