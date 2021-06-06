@@ -8,10 +8,10 @@
 </head>
 <body>
 <header id="heading">
-  <h1><a href="/">Garrett Marsh</a></h1>
+  <h1 id="name" class="noSelect"><a href="/"><strong>Garrett Marsh</strong></a></h1>
   <nav>
     <ul>
-      <li><a href="/">About</a></li>
+      <li class="noSelect"><a href="/">About</a></li>
       <li><a href="https://github.com/Gmarsh0218">Github</a></li>
       <li><a href="https://www.linkedin.com/in/garrett-marsh-34b11719a/">Linkedin</a></li>
     </ul>
@@ -20,13 +20,12 @@
 <main id="main-content" >
   <div class="card">
     <img alt="a photo of myself"
-         class="card-picture"
          src="images/portrait.png">
     <p class="card-text">I am a Computer Science Student looking for internships for the upcoming 2022 year. I have experience in Python, Java and C++. In addition, I have worked in a profession lab environment with the QCC Physics department.</p>
   </div>
-  <div class="card" id="currently-playing">
-    <img id="album-art" class="card-picture" alt="" src="">
-    <p id="song-info">I am currently listening to DEFAULT_SONG by DEFAULT_ARTIST</p>
+  <div class="card" id="currently-playing" onclick="getLastSong()">
+    <a href="https://www.youtube.com/results?search_query=have+a+nice+life+bloodhail"><img id="album-art" alt="Deathconsciousness" src="https://lastfm.freetls.fastly.net/i/u/174s/841092753c0d4f10cf9348beb4c7a1d9.jpg"></a>
+    <p id="song-info">Currently listening to Bloodhail by Have a Nice Life.</p>
   </div>
 </main>
 <footer></footer>
