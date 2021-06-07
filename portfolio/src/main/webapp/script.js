@@ -17,59 +17,58 @@
  */
 // function all elements that need js
 function onLoad() {
-  getLastSong();
+    getLastSong();
 }
 
 function timeSince(date) {
-  // difference of time between initial date and now in seconds, divide by 1000 because js uses ms for time.
-  let timeElapsed = Math.floor((new Date() - date) / 1000);
-  const unitsInSecs = {
-    'year': 31536000,
-    'month': 2419200,
-    'week': 604800,
-    'day': 86400,
-    'hour': 3600,
-    'minute': 60,
-    'second': 1,
-  };
+    // difference of time between initial date and now in seconds, divide by 1000 because js uses ms for time.
+    let diffInSeconds = Math.floor((new Date() / 1000) - date);
+    const unitsInSecs = {
+        'year': 31536000,
+        'month': 2419200,
+        'week': 604800,
+        'day': 86400,
+        'hour': 3600,
+        'minute': 60,
+        'second': 1,
+    };
 
-  for (const key in unitsInSecs) {
-    if (timeElapsed % unitsInSecs[key] !== timeElapsed) {
-      return `${Math.floor(timeElapsed / unitsInSecs[key])} ${key}${Math.floor(timeElapsed / unitsInSecs[key]) === 1 ? '' : 's'}`
+    for (const key in unitsInSecs) {
+        if (diffInSeconds % unitsInSecs[key] !== diffInSeconds) {
+            return `${Math.floor(diffInSeconds / unitsInSecs[key])} ${key}${Math.floor(diffInSeconds / unitsInSecs[key]) === 1 ? '' : 's'}`
+        }
     }
-  }
 }
 
 
-function getLastSong(){
-  const url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
-  fetchAsync(url).then(data => {
+function getLastSong() {
+    const url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
+    fetchAsync(url).then(data => {
 
-    const trackData = data.recenttracks.track[0];
-    const artistName = trackData.artist["#text"];
-    const songName = trackData.name;
-    const albumName = trackData.album["#text"];
+        const trackData = data.recenttracks.track[0];
+        const artistName = trackData.artist["#text"];
+        const songName = trackData.name;
+        const albumName = trackData.album["#text"];
 
-    let listeningInfo;
+        let listeningInfo;
 
-    if(trackData["@attr"] && trackData["@attr"].nowplaying === "true"){
-      listeningInfo = `I am currently listening to ${songName} by ${artistName}.` ;
+        if (trackData["@attr"] && trackData["@attr"].nowplaying === "true") {
+            listeningInfo = `I am currently listening to ${songName} by ${artistName}.`;
+        } else {
+            let timeSinceSongPlayed = timeSince(trackData.date["uts"]);
+            listeningInfo = `I was listening to ${songName} by ${artistName},  ${timeSinceSongPlayed} ago.`;
+        }
+        // set listening info
+        document.getElementById("song-info").innerText = listeningInfo;
+        //set album picture and alt text for accessibility purposes.
+        document.getElementById("album-art").src = trackData.image[2]["#text"];
+        document.getElementById("album-art").alt = albumName;
+    });
+
+    //fetchAsync() based on https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808
+    async function fetchAsync(url) {
+        let response = await fetch(url);
+        return await response.json();
     }
-    else{
-      let timeSinceSongPlayed = timeSince(trackData.date["uts"]);
-      listeningInfo = `I was listening to ${songName} by ${artistName},  ${timeSinceSongPlayed} ago.`;
-    }
-    // set listening info
-    document.getElementById("song-info").innerText = listeningInfo;
-    //set album picture and alt text for accessibility purposes.
-    document.getElementById("album-art").src = trackData.image[2]["#text"];
-    document.getElementById("album-art").alt = albumName;
-  });
-
-  //fetchAsync() based on https://gist.github.com/msmfsd/fca50ab095b795eb39739e8c4357a808
-  async function fetchAsync (url) {
-    let response = await fetch(url);
-    return await response.json();
-  }
 
 }
