@@ -1,9 +1,9 @@
 .classpath
 .idea
+/portfolio/.vscode
 /portfolio/portfolio.iml
 .project
 .settings/
 target/
 .run
 portfolio/src/main/webapp/secrets
-
