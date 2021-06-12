@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html onload="onLoad()" lang="en-us">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8">
@@ -11,25 +11,47 @@
 <body>
     <header id="heading">
         <h1><a id="name" href="/"><strong>Garrett Marsh</strong></a></h1>
-        <nav>
+        <nav class="nav-links">
             <ul>
-                <li><a href="/">About</a></li>
-                <li><a href="https://github.com/Gmarsh0218">Github</a></li>
-                <li><a href="https://www.linkedin.com/in/garrett-marsh-34b11719a/">Linkedin</a></li>
+                <li class="nav-element"><a href="/">About</a></li>
+                <li class="nav-element"><a href="https://github.com/Gmarsh0218">Github</a></li>
+                <li class="nav-element"><a href="https://www.linkedin.com/in/garrett-marsh-34b11719a/">Linkedin</a></li>
             </ul>
         </nav>
     </header>
     <main id="main-content">
         <div class="card">
             <img alt="a photo of myself" src="images/portrait.png">
-            <p class="card-text">I am a Computer Science Student looking for internships for the upcoming 2022 year. I have experience in Python, Java and C++. In addition, I have worked in a profession lab environment with the QCC Physics department.</p>
+            <div class="card-text">
+                <h1>About Me</h1>
+                <p class="card-text">I am a Computer Science Student looking for internships for the upcoming 2022 year. I have experience in Python, Java and C++ but I'm always excited to learn new technologies! In addition, I have worked in a lab environment with the QCC
+                    Physics department.
+                </p>
+            </div>
         </div>
-        <div class="card" id="currently-playing" onclick="getLastSong()">
+        <div class="card" id="currently-playing" onLoad="getLastSong()" onclick="getLastSong()">
             <a href="https://www.youtube.com/results?search_query=have+a+nice+life+bloodhail"><img id="album-art" alt="Deathconsciousness" src="https://lastfm.freetls.fastly.net/i/u/174s/841092753c0d4f10cf9348beb4c7a1d9.jpg"></a>
-            <p id="song-info">Currently listening to Bloodhail by Have a Nice Life.</p>
+            <div class="card-text">
+                <p id="song-info">Currently listening to Bloodhail by Have a Nice Life.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-text">
+                <h1>Particle Physics Research Assistant</h1>
+                <p>I assisted Professor Raul Armendariz in astro-particle physics research as a software developer. I built a Raspberry Pi application to graph the frequency of muon detections using Python and the libraries, Matplotlib, PyQt5 and NumPy. </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-text">
+            <h1>Google Mentorship Development Program</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Ut tellus elementum sagittis vitae et leo duis ut. Eget magna fermentum iaculis eu non diam. Scelerisque</p>
+            </div>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+
+    </footer>
 </body>
 
 </html>
