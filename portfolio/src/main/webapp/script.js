@@ -16,7 +16,7 @@
  * Adds a random greeting to the page.
  */
 // function all elements that need js
-function onLoad() {
+window.onload = () => {
     getLastSong();
 }
 
@@ -33,16 +33,18 @@ function timeSince(date) {
         'second': 1,
     };
 
+
     for (const key in unitsInSecs) {
-        if (diffInSeconds % unitsInSecs[key] !== diffInSeconds) {
-            return `${Math.floor(diffInSeconds / unitsInSecs[key])} ${key}${Math.floor(diffInSeconds / unitsInSecs[key]) === 1 ? '' : 's'}`
+        if (diffInSeconds >= unitsInSecs[key]) {
+            let units = Math.floor(diffInSeconds / unitsInSecs[key]);
+            return `${units} ${key}${units === 1 ? '' : 's'}`
         }
     }
 }
 
 
 function getLastSong() {
-    const url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
+    const url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
     fetchAsync(url).then(data => {
 
         const trackData = data.recenttracks.track[0];
