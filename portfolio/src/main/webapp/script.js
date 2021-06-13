@@ -37,15 +37,15 @@ function timeSince(date) {
 
     for (const key in unitsInSecs) {
         if (diffInSeconds >= unitsInSecs[key]) {
-
-            let units = Math.floor(diffInSeconds / unitsInSecs[key]);
+            units = Math.floor(diffInSeconds / unitsInSecs[key]);
+            return `${units} ${key}${units === 1 ? '' : 's'}`
         }
     }
 }
 
 
 function getLastSong() {
-    const url = `http://${window.location.host}/getRecentlyPlayed`;
+    const url = `/getRecentlyPlayed`;
 
     fetchAsync(url).then(data => {
 
