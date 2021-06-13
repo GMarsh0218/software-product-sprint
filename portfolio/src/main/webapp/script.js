@@ -16,8 +16,9 @@
  * Adds a random greeting to the page.
  */
 // function all elements that need js
+
 window.onload = () => {
-    getLastSong();
+
 }
 
 function timeSince(date) {
@@ -36,8 +37,8 @@ function timeSince(date) {
 
     for (const key in unitsInSecs) {
         if (diffInSeconds >= unitsInSecs[key]) {
+
             let units = Math.floor(diffInSeconds / unitsInSecs[key]);
-            return `${units} ${key}${units === 1 ? '' : 's'}`
         }
     }
 }
@@ -45,6 +46,7 @@ function timeSince(date) {
 
 function getLastSong() {
     const url = `http://${window.location.host}/getRecentlyPlayed`;
+
     fetchAsync(url).then(data => {
 
         const trackData = data.recenttracks.track[0];
