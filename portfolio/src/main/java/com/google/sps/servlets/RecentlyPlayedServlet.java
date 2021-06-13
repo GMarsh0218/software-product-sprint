@@ -35,8 +35,8 @@ public class RecentlyPlayedServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setContentType("text/html;");
-		response.getWriter().println("<p>" + getAPIResponse(LASTFM_API_URI) + "</p>");
+		response.setContentType("application/json");
+		response.getWriter().println(getAPIResponse(LASTFM_API_URI));
 	}
 
 
