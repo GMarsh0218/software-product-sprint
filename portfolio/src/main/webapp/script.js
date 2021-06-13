@@ -44,7 +44,7 @@ function timeSince(date) {
 
 
 function getLastSong() {
-    const url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=gmarsh0218&api_key=a228b6b2b58f233537d93206e9b768c5&format=json&limit=1';
+    const url = `http://${window.location.host}/getRecentlyPlayed`;
     fetchAsync(url).then(data => {
 
         const trackData = data.recenttracks.track[0];
