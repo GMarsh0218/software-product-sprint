@@ -18,7 +18,7 @@
 // function all elements that need js
 
 window.onload = () => {
-
+  getLastSong();
 }
 
 function timeSince(date) {
