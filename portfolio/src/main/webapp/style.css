@@ -11,6 +11,9 @@
     --font-color: #eeeeee;
 }
 
+
+/*main*/
+
 main {
     color: var(--main-bg-color);
     display: flex;
@@ -28,9 +31,15 @@ header {
     left: 0;
     right: 0;
     top: 0;
+    height: 10%;
     margin-bottom: 10px;
-    display: block;
+    display: flex;
+    justify-content: space-around;
     font-family: 'Abel', sans-serif;
+}
+
+header * {
+    display: inline;
 }
 
 #name {
@@ -39,28 +48,26 @@ header {
     text-decoration: none;
 }
 
-#name:hover {
-    color: green;
-}
-
-header nav {
+.nav-links {
+    height: 10%;
+    align-self: center;
     display: flex;
-    justify-content: space-around;
+    align-content: space-evenly;
+    align-items: center;
 }
 
-nav ul {
-    color: var(--font-color);
-    display: inline-block;
-    text-decoration: none;
+.nav-element {
     margin-right: 4rem;
-    font-size: 3rem;
+    font-size: x-large;
+    color: var(--font-color);
 }
 
-nav li a {
-    color: var(--font-color)
+.nav-element a {
+    color: var(--font-color);
+    text-decoration: none;
 }
 
-nav li a:hover {
+.nav-element a:hover {
     color: var(--accent-color);
 }
 
@@ -77,42 +84,51 @@ header h1 {
 
 body {
     background-color: var(--main-bg-color);
+    display: flex;
 }
 
 .card {
     max-height: 15em;
-    max-width: 50%;
+    max-width: 40%;
     width: auto;
-    margin: 5%;
+    margin: 10px;
     padding: 5px;
     background-color: var(--card-bg-color);
     display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    justify-content: flex-start;
     border-radius: 10px;
+    box-shadow: 0 0 10px 0 whitesmoke;
+    transition: 0.3s;
+}
+
+.card:hover {
     box-shadow: 0 0 10px 0 whitesmoke;
 }
 
 .card img {
     object-fit: contain;
     height: 200px;
-    padding: 0 5%;
+    padding: 5px;
     border-radius: 12px;
 }
 
-.card p {
+.card-text {
+    padding: 3px 5px;
+}
+
+.card-text h1 {
+    font: 'Abel', sans-serif;
+    color: var(--font-color);
+    font-size: x-large;
+    text-shadow: black;
+}
+
+.card-text p {
+    padding-top: 5px;
     font-family: 'Roboto', sans-serif;
     color: var(--font-color);
-    font-size: 1.2em;
-    padding: 5px;
+    font-size: large;
     word-wrap: break-word;
 }
 
 
 /* FOOTER */
-
-footer {}
-
-
-/*other classes*/
