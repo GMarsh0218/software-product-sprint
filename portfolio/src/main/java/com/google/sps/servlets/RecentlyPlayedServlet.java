@@ -39,7 +39,4 @@ public class RecentlyPlayedServlet extends HttpServlet {
 		response.getWriter().println(getAPIResponse(LASTFM_API_URI));
 	}
 
-
-
-
 }
