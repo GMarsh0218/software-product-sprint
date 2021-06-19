@@ -42,7 +42,7 @@ header * {
     display: inline;
 }
 
-#name {
+#nav-name{
     color: var(--font-color);
     display: block;
     text-decoration: none;
@@ -116,7 +116,7 @@ body {
 }
 
 .card-text h1 {
-    font: 'Abel', sans-serif;
+    font-family: 'Abel', sans-serif;
     color: var(--font-color);
     font-size: x-large;
     text-shadow: black;
