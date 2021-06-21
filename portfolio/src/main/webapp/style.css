@@ -131,4 +131,28 @@ body {
 }
 
 
-/* FOOTER */
+.contact-form{
+    min-width: 500px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-color);
+
+}
+
+.contact-form h1{
+    font-size: large;
+}
+
+.contact-form label{
+    font-size: medium;
+}
+
+#contact-submit-btn{
+    font-family: 'Abel', sans-serif;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
