@@ -10,7 +10,7 @@
 
 <body>
     <header id="heading">
-        <h1><a id="name" href="/"><strong>Garrett Marsh</strong></a></h1>
+        <h1><a id="nav-name" href="/"><strong>Garrett Marsh</strong></a></h1>
         <nav class="nav-links">
             <ul>
                 <li class="nav-element"><a href="/">About</a></li>
@@ -47,6 +47,18 @@
             <h1>Google Mentorship Development Program</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae justo eget magna fermentum iaculis eu. Ut tellus elementum sagittis vitae et leo duis ut. Eget magna fermentum iaculis eu non diam. Scelerisque</p>
             </div>
+        </div>
+        <div class="card">
+            <form class="contact-form" action="/contact-form-handler" method="POST" enctype="multipart/form-data">
+                <h1>Contact Me</h1>
+                <label for="name-input">Name:</label>
+                <input type="text" name="name" id="name-input" autocomplete="on"><br>
+                <label for="email-input">Email:</label>
+                <input type="email" name="email" id="email-input" autocomplete="on"><br>
+                <label for="message-input">Message:</label>
+                <textarea name="message-input" id="message-input"></textarea><br>
+                <input id="contact-submit-btn" type="submit" value="Submit">
+            </form>
         </div>
     </main>
     <footer>
