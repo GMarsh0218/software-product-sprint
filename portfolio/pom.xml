@@ -61,10 +61,6 @@
       <artifactId>google-cloud-datastore</artifactId>
       <version>1.104.0</version>
     </dependency>
-    <dependency>
-      <groupId>com.google.cloud</groupId>
-      <artifactId>google-cloud-secretmanager</artifactId>
-    </dependency>
   </dependencies>
 
   <build>
