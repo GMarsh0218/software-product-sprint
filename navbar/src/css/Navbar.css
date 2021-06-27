@@ -1,0 +1,26 @@
+
+.Navbar{
+    background-color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-bottom: 10px;
+}
+
+.Navbar li{
+    display: inline; 
+}
+.Navbar ul{
+    list-style-type: None;
+
+}
+.app-logo{
+    size: 10%;
+    padding: 0px 10px;
+
+}
+
+.app-logo:hover{
+    filter: drop-shadow(0 0 3px var(--shadow-color))
+}
