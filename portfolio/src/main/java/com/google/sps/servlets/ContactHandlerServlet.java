@@ -1,11 +1,12 @@
 package com.google.sps.servlets;
 
+import com.google.cloud.datastore.*;
 
-import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @WebServlet("/contact-form-handler")
 public class ContactHandlerServlet extends HttpServlet {
@@ -20,6 +21,21 @@ public class ContactHandlerServlet extends HttpServlet {
 		// Print message successful message received!
 		System.out.println("New Message Received from " + name + "(" + email + "):");
 		System.out.println(message);
+
+		//Store Message with DataStore
+		Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+		KeyFactory messageKeyFactory = datastore.newKeyFactory().setKind("Contact-Message");
+		long timestamp = System.currentTimeMillis();
+
+		FullEntity taskEntity =
+				Entity.newBuilder(messageKeyFactory.newKey())
+						.set("name", name)
+						.set("email", email)
+						.set("message", message)
+						.set("timestamp", timestamp)
+						.build();
+		datastore.put(taskEntity);
+
 
 		//redirect to homepage
 		try {
